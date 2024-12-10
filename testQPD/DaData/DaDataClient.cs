@@ -1,5 +1,4 @@
-﻿using System.Net.Http.Json;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using testQPD.DaData.Interfaces;
 
 namespace testQPD.DaData
@@ -23,10 +22,10 @@ namespace testQPD.DaData
                 throw new ArgumentException("Address cannot be null or empty.", nameof(address));
             }
 
-            // Формируем запрос к DaData
+           
             var response = await _httpClient.PostAsJsonAsync(string.Empty, new[] { address });
 
-            // Обрабатываем ответ
+            
             if (!response.IsSuccessStatusCode)
             {
                 var errorContent = await response.Content.ReadAsStringAsync();
